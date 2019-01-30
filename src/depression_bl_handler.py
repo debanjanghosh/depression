@@ -430,7 +430,7 @@ def generateFeatureAndClassification(kwargs):
     featGenr = FeatureGenerator(featureNames,kwargs)
     logger.info('Feature names are initialized')
     
-    
+    vectors = None
     if 'EMBED' in featureNames:
         vocabs = dataHandler.loadAllVocabs(inputPath)
         vectors = dataHandler.loadEmbedding(vocabs,vector_length=100)
@@ -519,28 +519,6 @@ def loadParameters(configFile):
 def main(argv):
     
     kwargs = loadParameters(argv[1])
-  #  input = kwargs['input']
-  #  svm_op = kwargs['output']
-  #  utilpath = kwargs['util']
- #   featureList = kwargs['features']
-    
-  #  featureList = ['NGRAM','HEDGE','LIWC','VADER', 'SENTI','MODAL','EMBED','PERSON',
-   #                'DISCOURSE']
-    
-    
-#    featureList = arguFeatList
-
-   # featureList = ['NGRAM', 'MODAL','SENTI','AGREE_LEX',  \
-    #               'DISCOURSE', 'VADER','EMBED','TAGQ', 'HYPER', 'LIWC', 'PUNCT', 'EMOT' ]
-    
-  #  featureList = ['PUNCT', 'INTERJ','LIWC','EMBED','EMOT','HYPER','NGRAM']
-    
- #   featureList = ['EMBED']
-    
-    
-    vectors =None
-  #  featureList = ['TAGQ']
-
     generateFeatureAndClassification(kwargs)
 
 if __name__ == '__main__':
